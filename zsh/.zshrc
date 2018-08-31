@@ -117,3 +117,16 @@ cprecent () {
 
 # FIND AND COMPRESS ALL IMAGES
 # find *.jpg -print0 | xargs -0 -n1 -P2 -I{} convert -resize 20% "{}" "{}"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# WRITE A MACRO FOR ME
+# gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf input.pdf
+
+alias pdfconcat="/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py"
+
+# CONVERTS FILE WITH SPACES AND UPPERCASE TO snake_case
+# for fname in *.docx; do
+#     new_name=$(echo $fname | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+#     mv $fname $new_name
+# done

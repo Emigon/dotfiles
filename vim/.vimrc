@@ -67,9 +67,16 @@ set ttyfast                 " Enables fast scrolling
 set foldmethod=marker
 
 " For latex files
+autocmd Filetype tex setlocal tw=79
 autocmd Filetype tex setlocal softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype tex setlocal wrap linebreak breakindent
 autocmd Filetype tex setlocal spell
 
 set listchars=tab:>>,trail:.,nbsp:~
 set list
+
+" For markdown files
+autocmd Filetype md setlocal tw=79
+autocmd Filetype md setlocal softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype md setlocal wrap linebreak breakindent
+autocmd Filetype md setlocal spell
