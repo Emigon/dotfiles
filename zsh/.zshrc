@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/danielparker/.oh-my-zsh
+export ZSH=/home/dp/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -93,13 +93,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-cd ~/home/
-
-export PATH=~/anaconda2/bin:$PATH
-export PATH=~/Library/Python/2.7/bin:$PATH
 
 # connect to bridge
-alias bridge='mount -t smbfs //daniel.parker@saludamedical.com/bridge/ ~/home/bridge/' 
 
 # stops > accidently destroying files. use >| to override 
 set -o noclobber
@@ -118,12 +113,8 @@ cprecent () {
 # FIND AND COMPRESS ALL IMAGES
 # find *.jpg -print0 | xargs -0 -n1 -P2 -I{} convert -resize 20% "{}" "{}"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # WRITE A MACRO FOR ME
 # gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf input.pdf
-
-alias pdfconcat="/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py"
 
 # CONVERTS FILE WITH SPACES AND UPPERCASE TO snake_case
 # for fname in *.docx; do
