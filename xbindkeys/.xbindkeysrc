@@ -1,0 +1,13 @@
+# backlight
+"/usr/bin/xbacklight -dec 10"
+    XF86MonBrightnessDown
+"/usr/bin/xbacklight -inc 10"
+    XF86MonBrightnessUp
+
+# volume
+"/usr/bin/amixer set Master toggle"
+    XF86AudioMute
+"/usr/bin/amixer set Master 10%-"
+    XF86AudioLowerVolume
+"/usr/bin/amixer set Master 10%+"
+    XF86AudioRaiseVolume
