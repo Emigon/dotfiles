@@ -13,4 +13,4 @@ compton &
 # hotkeys
 xbindkeys
 
-exec dwm
+exec ~/dwm/dwm
