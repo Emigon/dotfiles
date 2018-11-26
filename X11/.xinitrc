@@ -7,7 +7,7 @@ xrandr --dpi 144/eDP-1
 wmname LG3D
 
 # aesthetics
-feh --bg-fill ~/wallpapers/ghost_in_the_shell.jpg
+source ~/.fehbg
 compton &
 
 # hotkeys
