@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# lock screen
+DISPLAY=:0 slock &
+
+sleep 0.1

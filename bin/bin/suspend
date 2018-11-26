@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# make sure wifi and the keyboard won't wake us early
+ACPIFILE=/proc/acpi/wakeup
+
+for source in ARPT XHC1; do
+    if grep $source $ACPIFILE | grep enabled; then
+        echo $source > $ACPIFILE
+    fi
+done
+
+# run screen lock as user
+su dp /home/dp/bin/lock_screen
+
+# go to sleep
+echo mem > /sys/power/state
