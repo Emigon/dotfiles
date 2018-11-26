@@ -1,9 +1,6 @@
 # dwm status bar
 slstatus 2>&1 > /dev/null &
 
-# lock screen after from idle
-xautolock -time 15 -locker slock &
-
 # hidpi stuff
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 xrandr --dpi 144/eDP-1
