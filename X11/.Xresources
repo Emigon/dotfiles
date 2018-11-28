@@ -24,11 +24,6 @@ URxvt*modifier: mod1
 URxvt*color4: #6060ff
 URxvt*color12: #c0c0ff
 
-!URxvt*background: #8795e8
-URxvt*inheritPixmap: true
-URxvt*transperant: true
-URxvt*shading: 50
-
 URxvt*iso14755: off
 URxvt*iso14755_52: off
 
@@ -46,6 +41,5 @@ URxvt.secondaryScroll: true
 ! use the wheel in them instead
 URxvt.secondaryWheel:  true
 
-! Make Noto Emoji much smaller so it fits in the char cells
-URxvt.font:     xft:Inconsolata:size=24,xft:Noto Emoji:size=24:scale=0.4,xft:Symbola:size=24
+URxvt.font:     xft:Inconsolata Nerd Font Mono:style=Medium:size=24,xft:Noto Emoji:size=27:scale=0.60
 URxvt.font-size.step: 2
