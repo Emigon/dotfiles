@@ -8,7 +8,7 @@ wmname LG3D
 
 # aesthetics
 source ~/.fehbg
-compton &
+compton -bc --config ~/.compton.conf
 
 # hotkeys
 xbindkeys
