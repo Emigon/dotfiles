@@ -29,3 +29,6 @@ export EDITOR='vim'
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# alpha_vantage (for gatsby)
+export ALPHAVANTAGE_API_KEY="TY3LMJOWBXZKD0JM"
