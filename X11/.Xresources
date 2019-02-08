@@ -6,6 +6,24 @@ Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 
+! Colours
+#define white         #ffffff
+#define grey0         #878787
+#define grey1         #444444
+#define grey2         #303030
+#define pink          #ff87d7
+#define light_pink    #ffafd7
+#define hot_pink      #ff00ff
+#define red           #ff005f
+#define teal          #87ffff
+#define light_blue    #afffff
+#define light_yellow  #ffffaf
+#define mint          #afffd7
+#define dark_mint     #00ffaf
+#define lavender      #d7afff
+#define gray_purple   #afafd7
+#define dark_lavender #875faf
+
 ! Rxvt configuration
 URxvt*scrollBar_right: true
 URxvt*scrollBar: false
@@ -21,8 +39,24 @@ URxvt.selection.pattern-0: (.*)
 
 URxvt*modifier: mod1
 
-URxvt*color4: #6060ff
-URxvt*color12: #c0c0ff
+URxvt*color1:  white
+URxvt*color2:  teal
+URxvt*color3:  mint
+URxvt*color4:  lavender
+URxvt*color5:  grey1
+URxvt*color6:  red
+URxvt*color7:  grey_purple
+URxvt*color8:  light_yellow
+URxvt*color9:  light_pink
+URxvt*color10: light_blue
+URxvt*color11: dark_mint
+URxvt*color12: dark_lavender
+URxvt*color13: grey0
+URxvt*color14: hot_pink
+URxvt*color15: grey0
+
+URxvt*foreground: grey2
+URxvt*background: pink
 
 URxvt*iso14755: off
 URxvt*iso14755_52: off
