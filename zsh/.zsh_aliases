@@ -1,0 +1,4 @@
+alias dcp='docker-compose -f /home/dp/docker/docker-compose.yml '
+alias dcpull='docker-compose -f /home/dp/docker/docker-compose.yml pull --parallel'
+alias dclogs='docker-compose -f /home/dp/docker/docker-compose.yml logs -tf --tail="50" '
+alias dtail='docker logs -tf --tail="50" "$@"'
