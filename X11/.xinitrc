@@ -1,6 +1,3 @@
-# dwm status bar
-slstatus 2>&1 > /dev/null &
-
 # hidpi stuff
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 xrandr --dpi 144/eDP-1
@@ -13,4 +10,5 @@ compton -bc --config ~/.compton.conf
 # hotkeys
 xbindkeys
 
-exec ~/dwm/dwm
+# run daemontools to start processes as me
+exec svscan ~/services
