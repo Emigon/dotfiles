@@ -1,13 +1,24 @@
-#!/bin/sh
+#!/bin/bash
+
+# don't suspend if a display is connected
+EXT_DISPLAY=$(xrandr -q | grep -xe "[^e].* connected .*" | awk '{print $1}')
+if [ $(wc -w <<< "$EXT_DISPLAY") -gt 0 ]; then
+    xrandr --output "$EXT_DISPLAY" --mode 2560x1440
+    pkill dwm # dwm will be reloaded by daemontools
+    exit 0
+fi
+
+# turn off any displays that were being used
+for display in $(xrandr -q | grep -xe "[^e].* disconnected .*" | awk '{print $1}'); do
+    xrandr --output "$display" --off
+done
 
 # make sure wifi and the keyboard won't wake us early
 ACPIFILE=/proc/acpi/wakeup
 
-for source in ARPT XHC1; do
-    if grep $source $ACPIFILE | grep enabled; then
-        echo $source > $ACPIFILE
-    fi
-done
+# disable all wakeup triggers except for XHC
+for source in $(grep $ACPIFILE -e 'enabled' | awk '{print $1}'); do echo $source > $ACPIFILE; done
+echo XHC > $ACPIFILE
 
 # run screen lock as user
 su dp /home/dp/bin/lock_screen
