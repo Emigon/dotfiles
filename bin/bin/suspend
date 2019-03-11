@@ -26,5 +26,8 @@ su dp -c /home/dp/.local/bin/lock_screen
 # unmount network drive
 [[ ! -z $(mount | grep /server) ]] && umount /server
 
+# disable bluetooth
+bluetoothctl power off
+
 # go to sleep
 echo mem > /sys/power/state
