@@ -1,6 +1,6 @@
 # hidpi stuff
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-xrandr --dpi 144/eDP-1
+xrandr --dpi 170/eDP-1
 wmname LG3D
 
 # aesthetics
