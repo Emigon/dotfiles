@@ -23,5 +23,8 @@ echo XHC > $ACPIFILE
 # run screen lock as user
 su dp -c /home/dp/.local/bin/lock_screen
 
+# unmount network drive
+[[ ! -z $(mount | grep /server) ]] && umount /server
+
 # go to sleep
 echo mem > /sys/power/state
