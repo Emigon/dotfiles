@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# A simple dmenu yes/no prompt
+
+[ $(echo -e "Yes\nNo" | dmenu -i -p "$1") == "Yes" ] && $2
