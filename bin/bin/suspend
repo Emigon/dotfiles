@@ -21,7 +21,7 @@ for source in $(grep $ACPIFILE -e 'enabled' | awk '{print $1}'); do echo $source
 echo XHC > $ACPIFILE
 
 # run screen lock as user
-su dp /home/dp/bin/lock_screen
+su dp -c /home/dp/.local/bin/lock_screen
 
 # go to sleep
 echo mem > /sys/power/state
