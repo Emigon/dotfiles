@@ -11,4 +11,4 @@ compton -bc --config ~/.compton.conf
 xbindkeys
 
 # run daemontools to start processes as me
-exec svscan ~/services
+exec svscan ~/.local/services
