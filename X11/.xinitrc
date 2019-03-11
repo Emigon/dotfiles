@@ -4,8 +4,7 @@ xrandr --dpi 170/eDP-1
 wmname LG3D
 
 # aesthetics
-source ~/.fehbg
-compton -bc --config ~/.compton.conf
+xsetroot -solid "#606060"
 
 # hotkeys
 xbindkeys
