@@ -69,3 +69,8 @@ autocmd Filetype md setlocal tw=79
 autocmd Filetype md setlocal softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype md setlocal wrap linebreak breakindent
 autocmd Filetype md setlocal spell
+
+" solarized
+syntax enable
+set background=dark
+colorscheme solarized
