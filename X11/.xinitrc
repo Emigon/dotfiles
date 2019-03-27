@@ -4,7 +4,7 @@ xrandr --dpi 170/eDP-1
 wmname LG3D
 
 # aesthetics
-xsetroot -solid "#606060"
+xsetroot -solid "#586e75"
 
 # hotkeys
 xbindkeys
