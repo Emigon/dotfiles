@@ -25,3 +25,7 @@
 # bluetooth
 "[ $(echo -e 'On\nOff' | dmenu -i -p 'Bluetooth?') == 'On' ] && bluetoothctl power on || bluetoothctl power off"
     Alt + b
+
+# read article from reference archive
+"fzf_article"
+    Alt + a
