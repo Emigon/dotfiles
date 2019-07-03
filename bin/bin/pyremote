@@ -1,0 +1,8 @@
+#!/bin/sh
+USER=dp
+HOST=jjp-exp
+
+DIR=$(basename $(pwd))
+
+rsync -avz -e "ssh -p 23" $(pwd) $USER@$HOST:~/
+ssh -p 23 $USER@$HOST "cd ~/$DIR; /home/dp/.local/bin/ipython"
