@@ -1,5 +1,0 @@
-#!/bin/bash
-ARTICLE=$(pubs list | dmenu -i -l 10 | perl -pe 's|^\[(.*?)\].*|\1|')
-if [ -n "$ARTICLE" ]; then
-    pubs doc open "$ARTICLE"
-fi

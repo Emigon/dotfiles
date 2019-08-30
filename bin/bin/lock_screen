@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# lock screen
-DISPLAY=:0 /usr/local/bin/slock &
-
-sleep 0.1
