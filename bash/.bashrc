@@ -18,9 +18,6 @@ export ALPHAVANTAGE_API_KEY="TY3LMJOWBXZKD0JM"
 # prepend path with local programs
 export PATH=$HOME/.local/bin:$PATH
 
-# argcomplete explicit registration for pubs
-eval "$(register-python-argcomplete pubs)"
-
 # PS1
 PROMPT_COMMAND=prompt_command
 prompt_command() {
