@@ -1,0 +1,6 @@
+#!/bin/bash
+NAME=$(sed -n -e 's/^name=\(.*\)/\1/p' ~/.local/share/remmina/* | dmenu)
+if [ -n "$NAME" ]; then
+    FILE=$(grep -lr ~/.local/share/remmina/ -e "$NAME")
+    remmina --connect=$FILE
+fi
