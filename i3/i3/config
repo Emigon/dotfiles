@@ -18,7 +18,9 @@ bindsym $mod+w kill
 bindsym $mod+q exec qutebrowser
 
 # start program launcher
-bindsym $mod+space exec rofi -show run
+bindsym $mod+space exec "rofi -show drun -show-icons -modi drun"
+bindsym $mod+d exec "rofi -show combi -combi-modi 'run,ssh' -modi combi"
+bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -no-bold"
 
 # change focus
 bindsym $mod+h focus left
@@ -157,4 +159,20 @@ for_window [class="plasmashell" window_type="notification"] floating enable, bor
 for_window [class="^.*"] border pixel 3
 gaps inner 16
 
-exec --no-startup-id feh --bg-fill ~dp/dotfiles/wallpaper.*
+exec --no-startup-id wal --backend haishoku --saturate 0.8 -i ~dp/dotfiles/wallpaper.*
+
+# Set colors from Xresources
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color2 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $ej i3wm.color1 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $fg     $fg     $fg  $ej       $fg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
