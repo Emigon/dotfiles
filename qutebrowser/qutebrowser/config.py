@@ -44,42 +44,33 @@ c.backend = 'webengine'
 ## Type: Dict
 # c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
 
-# Colors from Xresources
-import subprocess
+# Colors from pywal
+import yaml
+with open("/home/dp/.cache/wal/colors.yml") as f:
+    contents = yaml.load(f)
 
-def read_xresources(prefix):
-    props = {}
-    x = subprocess.run(['xrdb', '-query'], stdout=subprocess.PIPE)
-    lines = x.stdout.decode().split('\n')
-    for line in filter(lambda l : l.startswith(prefix), lines):
-        prop, _, value = line.partition(':\t')
-        props[prop] = value
-    return props
-
-xresources = read_xresources('*')
-
-base00 = xresources['*color0']
-base01 = xresources['*color1']
-base02 = xresources['*color2']
-base03 = xresources['*color3']
-base04 = xresources['*color4']
-base05 = xresources['*color5']
-base06 = xresources['*color6']
-base07 = xresources['*color7']
-base08 = xresources['*color8']
-base09 = xresources['*color9']
-base0A = xresources['*color10']
-base0B = xresources['*color11']
-base0C = xresources['*color12']
-base0D = xresources['*color13']
-base0E = xresources['*color14']
-base0F = xresources['*color15']
+base00 = contents['colors']['color0']
+base01 = contents['colors']['color1']
+base02 = contents['colors']['color2']
+base03 = contents['colors']['color3']
+base04 = contents['colors']['color4']
+base05 = contents['colors']['color5']
+base06 = contents['colors']['color6']
+base07 = contents['colors']['color7']
+base08 = contents['colors']['color8']
+base09 = contents['colors']['color9']
+base0A = contents['colors']['color10']
+base0B = contents['colors']['color11']
+base0C = contents['colors']['color12']
+base0D = contents['colors']['color13']
+base0E = contents['colors']['color14']
+base0F = contents['colors']['color15']
 
 # set qutebrowser colors
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
-c.colors.completion.fg = xresources["*foreground"]
+c.colors.completion.fg = contents['special']["foreground"]
 
 # Background color of the completion widget for odd rows.
 c.colors.completion.odd.bg = base08
@@ -185,7 +176,7 @@ c.colors.messages.info.bg = base00
 c.colors.messages.info.border = base00
 
 # Foreground color for prompts.
-c.colors.prompts.fg = xresources["*foreground"]
+c.colors.prompts.fg = contents['special']["foreground"]
 
 # Border used around UI elements in prompts.
 c.colors.prompts.border = base00
@@ -221,7 +212,7 @@ c.colors.statusbar.private.fg = base00
 c.colors.statusbar.private.bg = base03
 
 # Foreground color of the statusbar in command mode.
-c.colors.statusbar.command.fg = xresources["*foreground"]
+c.colors.statusbar.command.fg = contents['special']["foreground"]
 
 # Background color of the statusbar in command mode.
 c.colors.statusbar.command.bg = base00
@@ -280,13 +271,13 @@ c.colors.tabs.indicator.stop = base0C
 c.colors.tabs.indicator.error = base08
 
 # Foreground color of unselected odd tabs.
-c.colors.tabs.odd.fg = xresources["*foreground"]
+c.colors.tabs.odd.fg = contents['special']["foreground"]
 
 # Background color of unselected odd tabs.
 c.colors.tabs.odd.bg = base08
 
 # Foreground color of unselected even tabs.
-c.colors.tabs.even.fg = xresources["*foreground"]
+c.colors.tabs.even.fg = contents['special']["foreground"]
 
 # Background color of unselected even tabs.
 c.colors.tabs.even.bg = base00
@@ -295,13 +286,13 @@ c.colors.tabs.even.bg = base00
 c.colors.tabs.selected.odd.fg = base00
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = xresources["*foreground"]
+c.colors.tabs.selected.odd.bg = contents['special']["foreground"]
 
 # Foreground color of selected even tabs.
 c.colors.tabs.selected.even.fg = base00
 
 # Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = xresources["*foreground"]
+c.colors.tabs.selected.even.bg = contents['special']["foreground"]
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -1747,3 +1738,6 @@ config.bind('<Ctrl-w>', 'tab-close')
 # config.bind('<Return>', 'prompt-accept', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
+
+# qute-keepass
+config.bind('<Ctrl-i>', 'spawn --userscript qute-keepass -p ~dp/.keepass.kdbx --keyfile ~/.keepass.key')
