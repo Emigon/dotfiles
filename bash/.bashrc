@@ -12,9 +12,6 @@ bind '"\e[B":history-search-forward'
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# alpha_vantage (for gatsby)
-export ALPHAVANTAGE_API_KEY="TY3LMJOWBXZKD0JM"
-
 # prepend path with local programs
 export PATH=$HOME/.local/bin:$PATH
 
