@@ -130,7 +130,7 @@ c.colors.downloads.stop.bg = base0C
 c.colors.downloads.error.fg = base08
 
 # Font color for hints.
-c.colors.hints.fg = base00
+c.colors.hints.fg = contents['special']["foreground"]
 
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
@@ -319,7 +319,7 @@ c.colors.tabs.selected.even.bg = contents['special']["foreground"]
 ##   - quickmarks
 ##   - bookmarks
 ##   - history
-# c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history']
+c.completion.open_categories = ['searchengines', 'bookmarks', 'history']
 
 ## Move on to the next part when there's only one possible completion
 ## left.
@@ -1386,7 +1386,7 @@ c.tabs.width = '20%'
 ## Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 ## for a blank page.
 ## Type: FuzzyUrl
-# c.url.default_page = 'https://start.duckduckgo.com/'
+c.url.default_page = 'https://startpage.com/'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1413,11 +1413,20 @@ c.tabs.width = '20%'
 ## used by prepending the search engine name to the search term, e.g.
 ## `:open google qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = \
+    {
+            'DEFAULT'   : 'https://www.startpage.com/do/dsearch?query={}',
+            'g'         : 'https://google.com/search?q={}',
+            'y'         : 'http://www.youtube.com/results?search_query={}',
+            'w'         : 'https://en.wikipedia.org/w/index.php?search={}&title=Special:Search',
+            'aw'        : 'https://wiki.archlinux.org/?search={}',
+            's'         : 'https://stackoverflow.com/search?q={}',
+            'p'         : 'https://scholar.google.com/scholar?q={}',
+    }
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-# c.url.start_pages = ['https://start.duckduckgo.com']
+c.url.start_pages = ['https://www.startpage.com']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
@@ -1740,4 +1749,4 @@ config.bind('<Ctrl-w>', 'tab-close')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
 
 # qute-keepass
-config.bind('<Ctrl-i>', 'spawn --userscript qute-keepass -p ~dp/.keepass.kdbx --keyfile ~/.keepass.key')
+config.bind('<Ctrl-i>', 'spawn --userscript qute-keepass -p ~dp/.keepass.kdbx')
