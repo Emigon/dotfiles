@@ -1,0 +1,75 @@
+# global channel options ----------------------------------------------------------
+Sync PullNew PullDelete Push
+Create Slave
+Expunge Slave
+CopyArrivalDate yes
+SyncState *
+
+# personal ------------------------------------------------------------------------
+IMAPAccount personal
+Host outlook.office365.com
+User danielparker@live.com.au
+PassCmd "gpg -dq ~/.mbsync-personal.gpg"
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+SSLType IMAPS
+PipelineDepth 50
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+SubFolders Verbatim
+Path ~/.mail/personal/
+Inbox ~/.mail/personal/Inbox
+
+Channel personal
+Master :personal-remote:
+Slave :personal-local:
+MaxSize 500mb
+Patterns INBOX Archive Deleted Drafts Junk Sent
+
+# unsw ----------------------------------------------------------------------------
+IMAPAccount unsw
+Host outlook.office365.com
+User z3466223@ad.unsw.edu.au
+PassCmd "gpg -dq ~/.mbsync-unsw.gpg"
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+SSLType IMAPS
+PipelineDepth 50
+
+IMAPStore unsw-remote
+Account unsw
+
+MaildirStore unsw-local
+SubFolders Verbatim
+Path ~/.mail/unsw/
+Inbox ~/.mail/unsw/Inbox
+
+Channel unsw
+Master :unsw-remote:
+Slave :unsw-local:
+MaxSize 500mb
+Patterns INBOX Archive "Deleted Items" Drafts "Junk Email" "Sent Items"
+
+# saluda --------------------------------------------------------------------------
+IMAPAccount saluda
+Host outlook.office365.com
+User daniel.parker@saludamedical.com
+PassCmd "gpg -dq ~/.mbsync-saluda.gpg"
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+SSLType IMAPS
+PipelineDepth 50
+
+IMAPStore saluda-remote
+Account saluda
+
+MaildirStore saluda-local
+SubFolders Verbatim
+Path ~/.mail/saluda/
+Inbox ~/.mail/saluda/Inbox
+
+Channel saluda
+Master :saluda-remote:
+Slave :saluda-local:
+MaxSize 500mb
+Patterns INBOX Archive "Deleted Items" Drafts "Junk Email" "Sent Items"
