@@ -5,7 +5,7 @@ c = get_config()
 c.TerminalIPythonApp.display_banner = False
 
 # import matplotlib/numpy etc on startup
-c.InteractiveShellApp.pylab = 'qt5'
+c.InteractiveShellApp.pylab = 'tk'
 
 # vi mode
 c.TerminalInteractiveShell.editing_mode = 'vim'

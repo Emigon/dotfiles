@@ -2,3 +2,8 @@ m https://moodle.telt.unsw.edu.au/login/index.php
 j https://129.94.163.217:9999/tree?
 a https://anff-nsw.org/scheduler/Web/?
 gh https://github.com/
+r http://192.168.1.100:7878/
+s http://192.168.1.100:8989/
+t http://192.168.1.100:9091/transmission/web/
+v https://secure.vanguardinvestments.com.au/vlmnesc/nesc/LoginPage?TYPE=33554433&REALMOID=06-00033658-f659-1970-bf17-8b160a96a05e&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=vlmprd01&TARGET=$SM$%2Fvanguard_online%2Finvestor%2Finvestmentsummary
+u https://192.168.1.1:8443/#Dashboard

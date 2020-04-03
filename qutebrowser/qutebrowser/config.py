@@ -588,7 +588,7 @@ c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/
 ## the mute status for the affected tab is now controlled manually, and
 ## this setting doesn't have any effect.
 ## Type: Bool
-c.content.mute = True
+c.content.mute = False
 
 ## Netrc-file for HTTP authentication. If unset, `~/.netrc` is used.
 ## Type: File
@@ -1003,7 +1003,7 @@ c.fonts.tabs = '16pt monospace'
 ##   - tab-silent: Open a new tab in the existing window without activating the window.
 ##   - tab-bg-silent: Open a new background tab in the existing window without activating the window.
 ##   - window: Open in a new window.
-# c.new_instance_open_target = 'tab'
+# c.new_instance_open_target = 'window'
 
 ## Which window to choose when opening links as new tabs. When
 ## `new_instance_open_target` is not set to `window`, this is ignored.
@@ -1750,3 +1750,4 @@ config.bind('<Ctrl-w>', 'tab-close')
 
 # qute-keepass
 config.bind('<Ctrl-i>', 'spawn --userscript qute-keepass -p ~dp/.keepass.kdbx')
+config.bind('<Ctrl-z>', 'hint links userscript qute-zotero')

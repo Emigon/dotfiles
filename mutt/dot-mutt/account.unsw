@@ -1,0 +1,13 @@
+# imap
+set imap_user = z3466223@ad.unsw.edu.au
+set folder = ~/.mail/unsw
+set spoolfile = +Inbox
+
+# smtp
+set from = z3466223@ad.unsw.edu.au
+set sendmail = "/usr/bin/msmtp -a unsw"
+set realname = "Daniel Parker"
+
+set header_cache=~/.mutt/personal/cache/headers
+set message_cachedir=~/.mutt/personal/cache/bodies
+set certificate_file=~/.mutt/personal/certificates

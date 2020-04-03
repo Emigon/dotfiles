@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts clipmenu daemon
+
+[Service]
+ExecStart=/usr/bin/clipmenud
+Restart=always
+
+[Install]
+WantedBy=default.target

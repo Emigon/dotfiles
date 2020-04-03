@@ -1,0 +1,110 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.config/zsh/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt extendedglob nomatch notify
+unsetopt autocd beep
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/dp/.config/zsh/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+zstyle ':completion:*' menu select
+setopt COMPLETE_ALIASES
+
+# use vim as default editor and enable keybindings in bash
+export EDITOR='vim'
+export SUDO_EDITOR=$EDITOR
+set -o vi
+
+# search forward and backward in history based on what has already been typed
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+
+# ssh:
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# prepend path with local programs
+export PATH=$HOME/.local/bin:$PATH
+
+# add emacs.d/bin to the path
+export PATH=$HOME/.emacs.d/bin:$PATH
+
+# prompt and cursor
+KEYTIMEOUT=5
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+	if [[ ${KEYMAP} == vicmd ]] ||
+	   [[ $1 = 'block' ]]; then
+	  	echo -ne '\e[1 q'
+
+	elif [[ ${KEYMAP} == main ]] ||
+	     [[ ${KEYMAP} == viins ]] ||
+	     [[ ${KEYMAP} = '' ]] ||
+	     [[ $1 = 'beam' ]]; then
+		echo -ne '\e[5 q'
+	fi
+}
+zle -N zle-keymap-select
+
+precmd() {
+    local EXIT="$?"
+    # abbreviate pwd fish style
+    local REGEX="s|^$HOME|~|;s|([^/])[^/]*/|$""1/|g"
+    local PWD_ABBRV=$(echo "$PWD" | perl -pl0 -e "$REGEX" | tr -d '\0')
+
+    if [ $EXIT != 0 ]; then
+        PS1="[ %F{red}$USER%f | $PWD_ABBRV ] $ " # Add red if exit code non 0
+    else
+        PS1="[ %F{green}$USER%f | $PWD_ABBRV ] $ "
+    fi
+
+}
+
+_fix_cursor() {
+	   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
+
+# ex - archive extractor
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
+alias dmenu=rofi
+
+# gpg setup
+GPG_TTY=$(tty)
+export GPG_TTY
